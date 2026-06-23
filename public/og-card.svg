@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#FFF8EE"/>
+  <circle cx="1040" cy="110" r="215" fill="#C9E1E5"/>
+  <rect x="84" y="470" width="295" height="18" fill="#7C8D50"/>
+  <rect x="935" y="484" width="145" height="18" fill="#D9795B"/>
+  <rect x="64" y="54" width="1072" height="522" fill="none" stroke="#397B98" stroke-width="4"/>
+  <path d="M88 520 258 350" stroke="#397B98" stroke-width="4" stroke-linecap="round"/>
+  <text x="86" y="126" fill="#397B98" font-family="Manrope, Arial, sans-serif" font-size="42" font-weight="800">N / B</text>
+  <text x="86" y="292" fill="#164B58" font-family="Manrope, Arial, sans-serif" font-size="76" font-weight="800">Nuray &amp; Barış</text>
+  <text x="90" y="360" fill="#D9795B" font-family="Manrope, Arial, sans-serif" font-size="38" font-weight="600">16 Ağustos 2026</text>
+  <text x="94" y="420" fill="#164B58" font-family="Manrope, Arial, sans-serif" font-size="28" font-weight="500">Elmalı / Antalya</text>
+  <text x="690" y="468" fill="#397B98" font-family="Manrope, Arial, sans-serif" font-size="42" font-weight="700">Evleniyooooooor!</text>
+</svg>

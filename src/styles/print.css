@@ -1,0 +1,96 @@
+@media print {
+  :root {
+    font-size: 12pt;
+  }
+
+  body {
+    background: #fff8ee;
+    color: #164b58;
+  }
+
+  body::before,
+  .design-motifs,
+  .envelope-scene,
+  .hero__visual,
+  .flow-divider,
+  .hero__actions,
+  .motion-ticker,
+  .scroll-cue,
+  .calendar-links,
+  .map-placeholder,
+  .map-frame,
+  .button,
+  .text-link,
+  .music-control,
+  .rsvp-form,
+  .footer__actions,
+  .section--rsvp,
+  .section--sky,
+  .section--day,
+  .admin-page {
+    display: none !important;
+  }
+
+  .hero,
+  .section,
+  .footer {
+    min-height: 0;
+    padding: 0;
+    background: transparent;
+    color: #164b58;
+  }
+
+  .page-shell {
+    width: 100%;
+  }
+
+  .hero__grid,
+  .intro-grid,
+  .detail-grid,
+  .venue-grid {
+    display: block;
+  }
+
+  .hero h1 {
+    font-size: 34pt;
+    line-height: 1.04;
+    margin: 16pt 0;
+  }
+
+  .hero h1 span {
+    display: inline;
+    font-size: 24pt;
+  }
+
+  .monogram {
+    width: 80pt;
+  }
+
+  .countdown {
+    display: none;
+  }
+
+  .intro-grid h2,
+  .section-heading h2 {
+    font-size: 22pt;
+  }
+
+  .detail-card,
+  .schedule__item {
+    break-inside: avoid;
+    border: 1pt solid #397b98;
+    background: transparent;
+    margin-bottom: 8pt;
+  }
+
+  .footer {
+    margin-top: 18pt;
+    border-top: 1pt solid #397b98;
+    padding-top: 8pt;
+  }
+
+  @page {
+    size: A4;
+    margin: 16mm;
+  }
+}

@@ -1,0 +1,574 @@
+.app-design {
+  position: relative;
+  min-height: 100svh;
+  overflow: clip;
+  background: var(--design-backdrop, transparent);
+  color: var(--petrol);
+}
+
+.app-design main,
+.app-design footer,
+.app-design .skip-link {
+  position: relative;
+  z-index: 1;
+}
+
+.design-motifs {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.motif {
+  position: absolute;
+  display: block;
+}
+
+.app-design--storybook {
+  --design-backdrop:
+    radial-gradient(circle at 18% 16%, rgba(201, 225, 229, 0.46), transparent 28rem),
+    radial-gradient(circle at 86% 70%, rgba(217, 121, 91, 0.12), transparent 24rem),
+    linear-gradient(180deg, #fff8ee, #fffaf1 48%, #f5ead8);
+}
+
+.app-design--storybook .motif--paint-wash {
+  left: -8rem;
+  top: 10rem;
+  width: 34rem;
+  height: 14rem;
+  border-radius: 56% 44% 60% 40%;
+  background: rgba(201, 225, 229, 0.24);
+  transform: rotate(-8deg);
+}
+
+.app-design--storybook .motif--paint-petal {
+  right: 14%;
+  top: 22%;
+  width: 14px;
+  height: 22px;
+  border-radius: 70% 30% 70% 30%;
+  background: rgba(217, 121, 91, 0.34);
+  animation: petalDrift 8s ease-in-out infinite;
+}
+
+.app-design--storybook .motif--paint-leaf {
+  left: 72%;
+  top: 64%;
+  width: 58px;
+  height: 24px;
+  border-radius: 58px 0 58px 0;
+  background: rgba(111, 129, 73, 0.26);
+  transform: rotate(-20deg);
+  animation: paintedLeafSway 5.6s ease-in-out infinite;
+}
+
+.app-design--storybook .motif--paint-note {
+  left: 8%;
+  bottom: 16%;
+  width: 8rem;
+  height: 2rem;
+  border: 1px solid rgba(57, 123, 152, 0.16);
+  border-radius: 8px;
+  background: rgba(255, 253, 247, 0.46);
+  transform: rotate(7deg);
+}
+
+.app-design--moonlit {
+  --ivory: #102833;
+  --sand: #203d48;
+  --sand-soft: #152f3a;
+  --blue: #8fc7d5;
+  --petrol: #f8efe0;
+  --petrol-soft: #c9e1e5;
+  --olive: #b5c27a;
+  --terracotta: #f2a07f;
+  --sky: #173644;
+  --paper: #142e39;
+  --border: rgba(248, 239, 224, 0.22);
+  --shadow: 0 26px 70px rgba(3, 14, 20, 0.42);
+  --design-backdrop:
+    radial-gradient(circle at 82% 10%, rgba(248, 239, 224, 0.2), transparent 11rem),
+    radial-gradient(circle at 18% 72%, rgba(143, 199, 213, 0.14), transparent 24rem),
+    linear-gradient(180deg, #0f2530, #132d39 48%, #0e202b);
+}
+
+.app-design--moonlit .hero,
+.app-design--moonlit .section {
+  background:
+    radial-gradient(circle at 72% 18%, rgba(242, 160, 127, 0.14), transparent 17rem),
+    linear-gradient(135deg, rgba(20, 46, 57, 0.8), rgba(16, 40, 51, 0.92));
+}
+
+.app-design--moonlit .section--sand,
+.app-design--moonlit .section--intro,
+.app-design--moonlit .section--details,
+.app-design--moonlit .section--rsvp {
+  background:
+    radial-gradient(circle at 18% 12%, rgba(143, 199, 213, 0.12), transparent 22rem),
+    linear-gradient(135deg, rgba(18, 48, 61, 0.9), rgba(10, 28, 38, 0.96));
+}
+
+.app-design--moonlit .detail-card,
+.app-design--moonlit .schedule__item,
+.app-design--moonlit .rsvp-form,
+.app-design--moonlit .map-placeholder,
+.app-design--moonlit .transport-band,
+.app-design--moonlit .music-band,
+.app-design--moonlit .day-band,
+.app-design--moonlit .intro-mini-scene,
+.app-design--moonlit .hero__visual {
+  background:
+    linear-gradient(145deg, rgba(248, 239, 224, 0.09), rgba(143, 199, 213, 0.1)),
+    rgba(20, 46, 57, 0.76);
+  border-color: rgba(248, 239, 224, 0.22);
+}
+
+.app-design--moonlit .button--primary {
+  background: #f8efe0;
+  color: #102833;
+}
+
+.app-design--moonlit .painted-flower {
+  width: 28px;
+  border-radius: 0;
+  background:
+    radial-gradient(circle, rgba(248, 239, 224, 0.95) 0 12%, transparent 13%),
+    conic-gradient(from 45deg, transparent 0 12%, rgba(242, 160, 127, 0.72) 12% 17%, transparent 17% 37%, rgba(143, 199, 213, 0.68) 37% 42%, transparent 42% 62%, rgba(248, 239, 224, 0.72) 62% 67%, transparent 67%);
+}
+
+.app-design--moonlit .painted-flower::after {
+  display: none;
+}
+
+.app-design--moonlit .motif--moon {
+  right: 8%;
+  top: 7%;
+  width: 108px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle at 34% 32%, #fff8ee, #dbcaa9 72%);
+  box-shadow: 0 0 72px rgba(248, 239, 224, 0.3);
+}
+
+.app-design--moonlit .motif--moon::after {
+  content: "";
+  position: absolute;
+  right: -12px;
+  top: 6px;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #102833;
+}
+
+.app-design--moonlit .motif--lantern {
+  width: 42px;
+  height: 62px;
+  border-radius: 999px 999px 12px 12px;
+  background:
+    linear-gradient(90deg, transparent 45%, rgba(248, 239, 224, 0.22) 45% 55%, transparent 55%),
+    rgba(242, 160, 127, 0.42);
+  box-shadow: 0 0 38px rgba(242, 160, 127, 0.28);
+  animation: lanternSwing 6.2s ease-in-out infinite;
+}
+
+.app-design--moonlit .motif--lantern::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 100%;
+  width: 1px;
+  height: 72px;
+  background: rgba(248, 239, 224, 0.24);
+}
+
+.app-design--moonlit .motif--lantern-one {
+  left: 9%;
+  top: 20%;
+}
+
+.app-design--moonlit .motif--lantern-two {
+  right: 22%;
+  top: 44%;
+  scale: 0.78;
+  animation-delay: -2.4s;
+}
+
+.app-design--moonlit .motif--star-field {
+  left: 15%;
+  right: 18%;
+  top: 11%;
+  height: 46%;
+  background-image:
+    radial-gradient(circle, rgba(248, 239, 224, 0.72) 0 1px, transparent 1.4px),
+    radial-gradient(circle, rgba(143, 199, 213, 0.62) 0 1px, transparent 1.4px);
+  background-position: 0 0, 28px 22px;
+  background-size: 86px 74px;
+  opacity: 0.55;
+}
+
+.app-design--moonlit .motif--constellation {
+  left: 58%;
+  top: 20%;
+  width: 220px;
+  color: rgba(248, 239, 224, 0.56);
+}
+
+.app-design--moonlit .motif--constellation path,
+.app-design--moonlit .motif--constellation circle {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 3;
+}
+
+.app-design--moonlit .motif--constellation circle {
+  fill: currentColor;
+}
+
+.app-design--tile {
+  --ivory: #f6fbfb;
+  --sand: #d8e7e5;
+  --sand-soft: #eaf3ef;
+  --blue: #126a7a;
+  --petrol: #123d49;
+  --petrol-soft: #2b6f79;
+  --olive: #598661;
+  --terracotta: #d25f45;
+  --sky: #b9dfe4;
+  --paper: #fffef9;
+  --border: rgba(18, 61, 73, 0.18);
+  --design-backdrop:
+    linear-gradient(45deg, rgba(18, 106, 122, 0.08) 25%, transparent 25% 75%, rgba(18, 106, 122, 0.08) 75%),
+    linear-gradient(45deg, transparent 25%, rgba(210, 95, 69, 0.08) 25% 75%, transparent 75%),
+    #f6fbfb;
+  background-size: 72px 72px;
+}
+
+.app-design--tile .hero,
+.app-design--tile .section {
+  background:
+    linear-gradient(135deg, rgba(246, 251, 251, 0.86), rgba(185, 223, 228, 0.24)),
+    repeating-linear-gradient(45deg, rgba(18, 106, 122, 0.06) 0 1px, transparent 1px 22px);
+}
+
+.app-design--tile .detail-card,
+.app-design--tile .schedule__item,
+.app-design--tile .intro-mini-scene,
+.app-design--tile .hero__visual,
+.app-design--tile .rsvp-form {
+  border-width: 2px;
+  background:
+    linear-gradient(135deg, rgba(255, 254, 249, 0.9), rgba(185, 223, 228, 0.24)),
+    repeating-linear-gradient(90deg, rgba(18, 106, 122, 0.06) 0 8px, transparent 8px 16px);
+}
+
+.app-design--tile .painted-flower {
+  border-radius: 0;
+  background:
+    linear-gradient(45deg, transparent 34%, rgba(210, 95, 69, 0.74) 34% 66%, transparent 66%),
+    linear-gradient(-45deg, transparent 34%, rgba(18, 106, 122, 0.7) 34% 66%, transparent 66%);
+  transform: rotate(45deg);
+}
+
+.app-design--tile .painted-flower::after {
+  display: none;
+}
+
+.app-design--tile .flow-divider__wash {
+  border-radius: 0;
+  clip-path: polygon(0 36%, 10% 18%, 22% 40%, 34% 20%, 48% 44%, 61% 18%, 75% 42%, 88% 20%, 100% 38%, 100% 76%, 0 78%);
+}
+
+.app-design--tile .motif--tile-grid {
+  inset: 0;
+  opacity: 0.42;
+  background:
+    linear-gradient(90deg, rgba(18, 106, 122, 0.16) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(18, 106, 122, 0.12) 1px, transparent 1px);
+  background-size: 96px 96px;
+}
+
+.app-design--tile .motif--tile-arch {
+  right: -4rem;
+  top: 18%;
+  width: 24rem;
+  height: 24rem;
+  border: 18px double rgba(18, 106, 122, 0.16);
+  border-bottom: 0;
+  border-radius: 24rem 24rem 0 0;
+}
+
+.app-design--tile .motif--tile-chip {
+  width: 72px;
+  aspect-ratio: 1;
+  border: 2px solid rgba(18, 106, 122, 0.24);
+  background:
+    linear-gradient(45deg, rgba(210, 95, 69, 0.28) 25%, transparent 25% 75%, rgba(18, 106, 122, 0.24) 75%),
+    rgba(255, 254, 249, 0.7);
+  transform: rotate(45deg);
+}
+
+.app-design--tile .motif--tile-chip-one {
+  left: 7%;
+  top: 16%;
+}
+
+.app-design--tile .motif--tile-chip-two {
+  right: 12%;
+  top: 55%;
+  scale: 0.7;
+}
+
+.app-design--tile .motif--tile-chip-three {
+  left: 30%;
+  bottom: 10%;
+  scale: 0.58;
+}
+
+.app-design--letterpress {
+  --ivory: #f7efe1;
+  --sand: #dfd0b8;
+  --sand-soft: #eee1cb;
+  --blue: #254e61;
+  --petrol: #2d2924;
+  --petrol-soft: #5c5147;
+  --olive: #6f7250;
+  --terracotta: #a74332;
+  --sky: #d8e1dc;
+  --paper: #fff9ed;
+  --border: rgba(45, 41, 36, 0.22);
+  --shadow: 0 22px 50px rgba(45, 41, 36, 0.13);
+  --design-backdrop:
+    radial-gradient(circle at 20% 20%, rgba(167, 67, 50, 0.1), transparent 18rem),
+    repeating-linear-gradient(0deg, rgba(45, 41, 36, 0.035) 0 1px, transparent 1px 9px),
+    #f7efe1;
+}
+
+.app-design--letterpress .hero,
+.app-design--letterpress .section {
+  background:
+    linear-gradient(145deg, rgba(255, 249, 237, 0.84), rgba(223, 208, 184, 0.22)),
+    repeating-linear-gradient(0deg, rgba(45, 41, 36, 0.035) 0 1px, transparent 1px 11px);
+}
+
+.app-design--letterpress .hero h1,
+.app-design--letterpress .section-heading h2,
+.app-design--letterpress .intro-grid h2 {
+  text-shadow: 1px 1px 0 rgba(167, 67, 50, 0.12);
+}
+
+.app-design--letterpress .detail-card,
+.app-design--letterpress .schedule__item,
+.app-design--letterpress .rsvp-form,
+.app-design--letterpress .hero__visual,
+.app-design--letterpress .intro-mini-scene {
+  background:
+    linear-gradient(160deg, rgba(255, 249, 237, 0.9), rgba(223, 208, 184, 0.22)),
+    var(--paper);
+  border-style: dashed;
+}
+
+.app-design--letterpress .painted-flower {
+  width: 34px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, rgba(167, 67, 50, 0.7) 0 22%, transparent 23%),
+    repeating-conic-gradient(rgba(45, 41, 36, 0.28) 0 10deg, transparent 10deg 24deg);
+}
+
+.app-design--letterpress .painted-flower::after {
+  display: none;
+}
+
+.app-design--letterpress .motif--deckle-sheet {
+  left: -6rem;
+  top: 18%;
+  width: 24rem;
+  height: 34rem;
+  background: rgba(255, 249, 237, 0.36);
+  border: 1px dashed rgba(45, 41, 36, 0.16);
+  clip-path: polygon(2% 0, 98% 2%, 100% 94%, 93% 100%, 0 97%, 3% 62%, 0 31%);
+  transform: rotate(-8deg);
+}
+
+.app-design--letterpress .motif--postal-stamp {
+  right: 8%;
+  top: 16%;
+  width: 116px;
+  aspect-ratio: 1.22;
+  border: 2px dashed rgba(37, 78, 97, 0.34);
+  color: rgba(37, 78, 97, 0.62);
+  transform: rotate(7deg);
+}
+
+.app-design--letterpress .motif--postal-stamp::after {
+  content: "NB";
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  font-size: 2rem;
+}
+
+.app-design--letterpress .motif--ink-roller {
+  right: 10%;
+  bottom: 18%;
+  width: 18rem;
+  height: 2.2rem;
+  border-radius: 999px;
+  background: rgba(45, 41, 36, 0.14);
+  transform: rotate(-7deg);
+}
+
+.app-design--letterpress .motif--wax-seal {
+  left: 18%;
+  bottom: 12%;
+  width: 82px;
+  aspect-ratio: 1;
+  border-radius: 48% 52% 44% 56%;
+  background: rgba(167, 67, 50, 0.3);
+}
+
+.app-design--letterpress .motif--registration-cross {
+  right: 30%;
+  top: 42%;
+  width: 74px;
+  aspect-ratio: 1;
+  background:
+    linear-gradient(90deg, transparent 47%, rgba(45, 41, 36, 0.18) 47% 53%, transparent 53%),
+    linear-gradient(0deg, transparent 47%, rgba(45, 41, 36, 0.18) 47% 53%, transparent 53%);
+}
+
+.app-design--garden {
+  --ivory: #fbf8ed;
+  --sand: #e4d8b7;
+  --sand-soft: #eef0d8;
+  --blue: #427c83;
+  --petrol: #24483c;
+  --petrol-soft: #517468;
+  --olive: #617b3d;
+  --terracotta: #cf704d;
+  --sky: #d7e7dd;
+  --paper: #fffdf3;
+  --border: rgba(36, 72, 60, 0.2);
+  --design-backdrop:
+    radial-gradient(circle at 86% 14%, rgba(207, 112, 77, 0.12), transparent 16rem),
+    radial-gradient(circle at 14% 68%, rgba(97, 123, 61, 0.16), transparent 22rem),
+    linear-gradient(180deg, #fbf8ed, #eef0d8);
+}
+
+.app-design--garden .hero,
+.app-design--garden .section {
+  background:
+    radial-gradient(circle at 14% 16%, rgba(215, 231, 221, 0.6), transparent 18rem),
+    linear-gradient(135deg, rgba(251, 248, 237, 0.9), rgba(238, 240, 216, 0.58));
+}
+
+.app-design--garden .detail-card,
+.app-design--garden .schedule__item,
+.app-design--garden .rsvp-form,
+.app-design--garden .hero__visual,
+.app-design--garden .intro-mini-scene {
+  background:
+    radial-gradient(circle at 90% 18%, rgba(207, 112, 77, 0.1), transparent 8rem),
+    linear-gradient(145deg, rgba(255, 253, 243, 0.9), rgba(215, 231, 221, 0.34));
+}
+
+.app-design--garden .painted-flower {
+  --petal-a: rgba(207, 112, 77, 0.74);
+  --petal-b: rgba(255, 236, 176, 0.78);
+}
+
+.app-design--garden .flow-divider__wash {
+  background:
+    radial-gradient(circle at 20% 50%, rgba(97, 123, 61, 0.18), transparent 28%),
+    radial-gradient(circle at 70% 46%, rgba(207, 112, 77, 0.13), transparent 30%),
+    rgba(255, 253, 243, 0.32);
+}
+
+.app-design--garden .motif--olive-bough {
+  width: 220px;
+  height: 170px;
+  border-left: 3px solid rgba(97, 123, 61, 0.32);
+  border-radius: 50%;
+}
+
+.app-design--garden .motif--olive-bough::before,
+.app-design--garden .motif--olive-bough::after {
+  content: "";
+  position: absolute;
+  width: 54px;
+  height: 24px;
+  border-radius: 54px 0 54px 0;
+  background: rgba(97, 123, 61, 0.28);
+}
+
+.app-design--garden .motif--olive-bough::before {
+  left: 32px;
+  top: 34px;
+  transform: rotate(-28deg);
+}
+
+.app-design--garden .motif--olive-bough::after {
+  left: 70px;
+  top: 92px;
+  transform: rotate(148deg);
+}
+
+.app-design--garden .motif--olive-bough-one {
+  left: 3%;
+  top: 18%;
+  transform: rotate(-22deg);
+}
+
+.app-design--garden .motif--olive-bough-two {
+  right: 4%;
+  bottom: 12%;
+  transform: rotate(148deg);
+}
+
+.app-design--garden .motif--citrus {
+  width: 96px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, rgba(255, 253, 243, 0.9) 0 18%, transparent 19%),
+    conic-gradient(from 10deg, rgba(207, 112, 77, 0.32), rgba(255, 236, 176, 0.42), rgba(207, 112, 77, 0.32));
+  border: 1px solid rgba(207, 112, 77, 0.16);
+}
+
+.app-design--garden .motif--citrus-one {
+  right: 14%;
+  top: 18%;
+}
+
+.app-design--garden .motif--citrus-two {
+  left: 22%;
+  bottom: 14%;
+  scale: 0.68;
+}
+
+.app-design--garden .motif--stitch-path {
+  left: 8%;
+  right: 8%;
+  top: 54%;
+  height: 2px;
+  background: repeating-linear-gradient(90deg, rgba(97, 123, 61, 0.28) 0 12px, transparent 12px 22px);
+  transform: rotate(-3deg);
+}
+
+@media (max-width: 760px) {
+  .design-motifs {
+    opacity: 0.55;
+  }
+
+  .app-design--moonlit .motif--constellation,
+  .app-design--tile .motif--tile-arch,
+  .app-design--letterpress .motif--deckle-sheet,
+  .app-design--garden .motif--olive-bough-two {
+    display: none;
+  }
+}

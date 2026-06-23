@@ -1,0 +1,19 @@
+{
+  "name": "Nuray & Barış Düğün Davetiyesi",
+  "short_name": "Nuray & Barış",
+  "description": "Nuray Göncü ve Barış Kahraman’ın düğün davetiyesi.",
+  "lang": "tr",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#FFF8EE",
+  "theme_color": "#FFF8EE",
+  "icons": [
+    {
+      "src": "/icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
