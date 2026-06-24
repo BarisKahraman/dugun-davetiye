@@ -560,6 +560,655 @@
   transform: rotate(-3deg);
 }
 
+.app-design--nuray {
+  --ivory: #fffef8;
+  --sand: #f2dfbc;
+  --sand-soft: #f7ead0;
+  --blue: #4f7fa3;
+  --petrol: #343d5d;
+  --petrol-soft: #557596;
+  --olive: #607d66;
+  --terracotta: #e7b85e;
+  --sky: #abc9e6;
+  --paper: #fffef8;
+  --border: rgba(52, 61, 93, 0.18);
+  --shadow: 0 26px 72px rgba(52, 61, 93, 0.16);
+  --section-overlap: -2.8rem;
+  --design-backdrop:
+    radial-gradient(ellipse at 50% 102%, rgba(242, 223, 188, 0.88), transparent 30rem),
+    radial-gradient(circle at 18% 14%, rgba(96, 125, 102, 0.14), transparent 18rem),
+    radial-gradient(circle at 86% 28%, rgba(79, 127, 163, 0.13), transparent 22rem),
+    linear-gradient(180deg, #fffef8 0%, #e8f1f7 24%, #abc9e6 66%, #f2dfbc 100%);
+}
+
+.app-design--nuray .hero {
+  min-height: 96svh;
+  background:
+    linear-gradient(180deg, #fffef8 0 7%, #dce7ed 7% 55%, #abc9e6 55% 78%, #f2dfbc 78% 100%);
+}
+
+.app-design--nuray .hero::before {
+  inset: clamp(1rem, 3vw, 2.4rem) clamp(0.9rem, 5vw, 4.4rem) auto;
+  z-index: 0;
+  height: min(64svh, 660px);
+  border: 0;
+  border-radius: 0;
+  background:
+    url("/designs/nuray/blue-bells.png") top center / 156px auto no-repeat,
+    url("/designs/nuray/navy-string.png") top 2.2rem center / min(560px, 58vw) auto no-repeat,
+    linear-gradient(180deg, rgba(220, 231, 237, 0.96), rgba(220, 231, 237, 0.78));
+  clip-path: polygon(4% 0, 96% 0, 100% 87%, 88% 96%, 50% 100%, 11% 96%, 0 88%);
+  transform: none;
+}
+
+.app-design--nuray .hero::after {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  width: auto;
+  height: min(30svh, 290px);
+  background:
+    url("/designs/nuray/sand-water-strip.png") bottom center / 1180px auto repeat-x,
+    linear-gradient(180deg, rgba(171, 201, 230, 0), rgba(171, 201, 230, 0.92) 26%, #f2dfbc 72%);
+  transform: none;
+}
+
+.app-design--nuray .hero__stage,
+.app-design--nuray .music-control,
+.app-design--nuray .scroll-cue {
+  position: relative;
+  z-index: 1;
+}
+
+.app-design--nuray .hero__copy {
+  align-self: center;
+  padding: clamp(1.7rem, 4vw, 3rem);
+  border: 1px solid rgba(96, 125, 102, 0.2);
+  background:
+    url("/designs/nuray/line-frame.png") center 44% / min(430px, 86%) auto no-repeat,
+    rgba(255, 254, 248, 0.8);
+  clip-path: polygon(6% 1%, 94% 0, 100% 14%, 97% 88%, 86% 100%, 8% 98%, 0 82%, 2% 11%);
+  box-shadow: 0 24px 60px rgba(52, 61, 93, 0.12);
+  backdrop-filter: blur(5px);
+}
+
+.app-design--nuray .hero__copy::before {
+  left: auto;
+  right: -2.6rem;
+  top: -2.2rem;
+  width: 8.6rem;
+  height: 8.6rem;
+  border-radius: 0;
+  background: url("/designs/nuray/leaf-flourish.png") center / contain no-repeat;
+  opacity: 0.74;
+  animation: nurayFloat 6.8s ease-in-out infinite;
+}
+
+.app-design--nuray .hero__copy::after {
+  left: -2rem;
+  bottom: -1.4rem;
+  width: 10rem;
+  height: 8rem;
+  background: url("/designs/nuray/yellow-bouquet.png") center / contain no-repeat;
+  opacity: 0.88;
+  transform: rotate(-9deg);
+}
+
+.app-design--nuray .hero h1,
+.app-design--nuray .storybook-scene__card strong,
+.app-design--nuray .intro-copy h2 {
+  font-family: "Caveat Brush", "Comic Sans MS", cursive;
+  color: #343d5d;
+  letter-spacing: 0;
+}
+
+.app-design--nuray .hero h1 {
+  font-size: clamp(4.2rem, 8vw, 7rem);
+  text-shadow: 0 14px 26px rgba(52, 61, 93, 0.12);
+}
+
+.app-design--nuray .hero h1:focus {
+  outline: none;
+}
+
+.app-design--nuray .hero h1 span {
+  color: #607d66;
+}
+
+.app-design--nuray .eyebrow,
+.app-design--nuray .hero__manifesto,
+.app-design--nuray .section-heading p,
+.app-design--nuray .intro-copy p {
+  color: #557596;
+}
+
+.app-design--nuray .hero-title-flower-accent {
+  right: clamp(-0.6rem, 2vw, 1.5rem);
+  top: 1.2rem;
+  width: 122px;
+  height: 124px;
+  background: url("/designs/nuray/ribbon-bouquet.png") center / contain no-repeat;
+  animation: nurayFloat 6.4s ease-in-out infinite;
+}
+
+.app-design--nuray .hero-title-flower-accent > * {
+  display: none;
+}
+
+.app-design--nuray .button--primary {
+  background: #607d66;
+  color: #fffef8;
+  box-shadow: 0 14px 30px rgba(96, 125, 102, 0.28);
+}
+
+.app-design--nuray .text-link {
+  color: #343d5d;
+}
+
+.app-design--nuray .calendar-links a,
+.app-design--nuray .calendar-links button {
+  background: rgba(255, 254, 248, 0.74);
+  border-color: rgba(52, 61, 93, 0.16);
+}
+
+.app-design--nuray .hero__visual {
+  min-height: min(760px, 78svh);
+  border: 0;
+  border-radius: 0;
+  background:
+    linear-gradient(180deg, rgba(220, 231, 237, 0.86) 0 50%, rgba(171, 201, 230, 0.96) 50% 78%, rgba(242, 223, 188, 0.94) 78%),
+    #abc9e6;
+  clip-path: polygon(6% 0, 94% 0, 100% 9%, 99% 86%, 88% 100%, 11% 97%, 0 88%, 1% 9%);
+  box-shadow: 0 34px 82px rgba(52, 61, 93, 0.2);
+  transform: rotate(-0.8deg);
+}
+
+.app-design--nuray .hero__visual::before,
+.app-design--nuray .hero__visual::after {
+  width: 178px;
+  height: 158px;
+  border: 0;
+  box-shadow: none;
+  background: url("/designs/nuray/floral-arch-corner.png") center / contain no-repeat;
+  opacity: 0.96;
+}
+
+.app-design--nuray .hero__visual::before {
+  top: -0.2rem;
+  left: -0.4rem;
+  transform: none;
+}
+
+.app-design--nuray .hero__visual::after {
+  right: -0.4rem;
+  top: -0.2rem;
+  transform: scaleX(-1);
+}
+
+.app-design--nuray .storybook-scene::before {
+  z-index: 0;
+  background:
+    url("/designs/nuray/cloud-bank.png") left 50% bottom 21% / 36% auto no-repeat,
+    url("/designs/nuray/cloud-bank.png") right 46% bottom 19% / 35% auto no-repeat,
+    url("/designs/nuray/coastline-hill.png") center bottom 21% / 124% auto no-repeat,
+    url("/designs/nuray/beach-water-strip.png") center bottom / 112% auto repeat-x,
+    linear-gradient(180deg, #dce7ed 0 52%, #abc9e6 52% 78%, #f2dfbc 78%);
+  opacity: 1;
+}
+
+.app-design--nuray .storybook-scene::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 4%;
+  z-index: 8;
+  width: min(52%, 320px);
+  aspect-ratio: 531 / 527;
+  background: url("/designs/nuray/couple-walking.png") center bottom / contain no-repeat;
+  filter: drop-shadow(0 18px 18px rgba(52, 61, 93, 0.12));
+  transform: translateX(-50%);
+  animation: nurayCoupleStep 5.8s ease-in-out infinite;
+}
+
+.app-design--nuray .storybook-scene__wash--sky {
+  left: 7%;
+  top: 19%;
+  width: 58%;
+  height: 28%;
+  background: url("/designs/nuray/line-frame.png") center / contain no-repeat;
+  opacity: 0.56;
+  transform: none;
+}
+
+.app-design--nuray .storybook-scene__wash--olive {
+  left: -4%;
+  bottom: 25%;
+  width: 42%;
+  height: 18%;
+  background: url("/designs/nuray/green-hill.png") center bottom / contain no-repeat;
+  opacity: 0.82;
+  transform: none;
+}
+
+.app-design--nuray .storybook-scene__card {
+  left: 18%;
+  top: 12%;
+  width: 64%;
+  min-height: 235px;
+  border: 0;
+  background:
+    url("/designs/nuray/leaf-flourish.png") center 62% / 68% auto no-repeat,
+    rgba(255, 254, 248, 0.68);
+  clip-path: polygon(8% 0, 92% 2%, 100% 18%, 95% 88%, 82% 100%, 10% 96%, 0 78%, 4% 12%);
+  box-shadow: 0 18px 44px rgba(52, 61, 93, 0.12);
+  animation: invitationCardBreath 7.2s ease-in-out infinite;
+}
+
+.app-design--nuray .storybook-scene__card .monogram {
+  color: #607d66;
+}
+
+.app-design--nuray .storybook-scene__card small {
+  color: #607d66;
+}
+
+.app-design--nuray .storybook-scene__tape {
+  display: none;
+}
+
+.app-design--nuray .storybook-scene__envelope {
+  right: -2%;
+  top: auto;
+  bottom: 4%;
+  z-index: 10;
+  width: min(32%, 175px);
+  aspect-ratio: 421 / 447;
+  background: url("/designs/nuray/blue-gift.png") center / contain no-repeat;
+  transform: rotate(-8deg);
+  animation: nurayFloat 5.8s ease-in-out infinite;
+}
+
+.app-design--nuray .storybook-scene__envelope span {
+  display: none;
+}
+
+.app-design--nuray .painted-branch {
+  z-index: 6;
+  width: 136px;
+  height: 136px;
+  background: url("/designs/nuray/green-flower-vine.png") center / contain no-repeat;
+}
+
+.app-design--nuray .painted-branch span {
+  display: none;
+}
+
+.app-design--nuray .painted-branch--left {
+  left: -2%;
+  top: 7%;
+  transform: rotate(-10deg);
+}
+
+.app-design--nuray .painted-branch--right {
+  right: -2%;
+  top: 7%;
+  bottom: auto;
+  transform: scaleX(-1) rotate(-10deg);
+}
+
+.app-design--nuray .painted-flower-field .painted-flower {
+  display: none;
+}
+
+.app-design--nuray .painted-flower-field--front {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 11;
+  height: 148px;
+}
+
+.app-design--nuray .painted-flower-field--front::before,
+.app-design--nuray .painted-flower-field--front::after,
+.app-design--nuray .painted-flower-field--corner::before {
+  content: "";
+  position: absolute;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.app-design--nuray .painted-flower-field--front::before {
+  left: -2.4rem;
+  bottom: -0.8rem;
+  width: 212px;
+  height: 160px;
+  background-image: url("/designs/nuray/yellow-bouquet.png");
+}
+
+.app-design--nuray .painted-flower-field--front::after {
+  right: -1.8rem;
+  bottom: -0.7rem;
+  width: 190px;
+  height: 155px;
+  background-image: url("/designs/nuray/ribbon-bouquet.png");
+}
+
+.app-design--nuray .painted-flower-field--corner {
+  right: 5%;
+  bottom: 28%;
+  width: 106px;
+  height: 106px;
+}
+
+.app-design--nuray .painted-flower-field--corner::before {
+  inset: 0;
+  background-image: url("/designs/nuray/blue-sparkle.png");
+  animation: nuraySparkle 3.8s ease-in-out infinite;
+}
+
+.app-design--nuray .storybook-scene__line {
+  left: 12%;
+  right: 12%;
+  bottom: 24%;
+  color: rgba(52, 61, 93, 0.48);
+}
+
+.app-design--nuray .hero__date-card {
+  display: none;
+}
+
+.app-design--nuray .section {
+  background:
+    radial-gradient(circle at 12% 12%, rgba(255, 254, 248, 0.58), transparent 16rem),
+    radial-gradient(circle at 86% 14%, rgba(96, 125, 102, 0.11), transparent 17rem),
+    linear-gradient(135deg, rgba(220, 231, 237, 0.88), rgba(255, 254, 248, 0.86));
+  clip-path: polygon(0 var(--section-top-left, 0), 100% var(--section-top-right, 2.2rem), 98% calc(100% - var(--section-bottom-right, 1.2rem)), 86% 100%, 12% calc(100% - 0.6rem), 0 calc(100% - var(--section-bottom-left, 2.6rem)));
+}
+
+.app-design--nuray .section--sand {
+  background:
+    url("/designs/nuray/sand-water-strip.png") bottom center / 900px auto repeat-x,
+    linear-gradient(145deg, rgba(242, 223, 188, 0.92), rgba(255, 254, 248, 0.78));
+}
+
+.app-design--nuray .section--sky,
+.app-design--nuray .section--details,
+.app-design--nuray .section--rsvp {
+  background:
+    radial-gradient(circle at 78% 18%, rgba(79, 127, 163, 0.18), transparent 18rem),
+    linear-gradient(145deg, rgba(171, 201, 230, 0.72), rgba(255, 254, 248, 0.86));
+}
+
+.app-design--nuray .section::before {
+  right: -3rem;
+  top: 1.2rem;
+  width: 13rem;
+  height: 13rem;
+  background: url("/designs/nuray/green-flower-vine.png") center / contain no-repeat;
+  opacity: 0.46;
+  transform: rotate(-8deg);
+}
+
+.app-design--nuray .section::after {
+  left: -4rem;
+  bottom: 0.4rem;
+  width: 18rem;
+  height: 8rem;
+  background: url("/designs/nuray/beach-water-strip.png") center / contain no-repeat;
+  opacity: 0.5;
+  transform: rotate(1deg);
+}
+
+.app-design--nuray .section-heading h2,
+.app-design--nuray .detail-card h3,
+.app-design--nuray .schedule__item h3 {
+  color: #343d5d;
+}
+
+.app-design--nuray .section-heading::before {
+  background: #607d66;
+}
+
+.app-design--nuray .detail-card,
+.app-design--nuray .schedule__item,
+.app-design--nuray .rsvp-form,
+.app-design--nuray .map-placeholder,
+.app-design--nuray .transport-band,
+.app-design--nuray .music-band,
+.app-design--nuray .day-band {
+  border-color: rgba(52, 61, 93, 0.14);
+  background:
+    radial-gradient(circle at 88% 10%, rgba(231, 184, 94, 0.14), transparent 7rem),
+    linear-gradient(150deg, rgba(255, 254, 248, 0.9), rgba(220, 231, 237, 0.44));
+  border-radius: 34px 18px 38px 22px;
+  clip-path: polygon(4% 0, 96% 2%, 100% 18%, 96% 92%, 84% 100%, 8% 98%, 0 84%, 2% 10%);
+}
+
+.app-design--nuray .detail-card--date::after {
+  background-image: url("/designs/nuray/gold-rings.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.62;
+}
+
+.app-design--nuray .detail-card--venue::after {
+  background-image: url("/designs/nuray/flying-birds.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.46;
+}
+
+.app-design--nuray .intro-mini-scene {
+  min-height: 420px;
+  border: 0;
+  background:
+    url("/designs/nuray/cloud-bank.png") left 2rem bottom 38% / 42% auto no-repeat,
+    url("/designs/nuray/cloud-bank.png") right 1rem bottom 38% / 40% auto no-repeat,
+    url("/designs/nuray/beach-water-strip.png") bottom center / 112% auto repeat-x,
+    linear-gradient(180deg, #dce7ed 0 50%, #abc9e6 50% 78%, #f2dfbc 78%);
+  clip-path: polygon(5% 0, 95% 2%, 100% 14%, 97% 90%, 88% 100%, 10% 98%, 0 84%, 2% 10%);
+}
+
+.app-design--nuray .intro-mini-scene::before {
+  inset: auto 0 6%;
+  height: 62%;
+  background: url("/designs/nuray/couple-dance.png") center bottom / contain no-repeat;
+  opacity: 1;
+}
+
+.app-design--nuray .intro-mini-scene::after {
+  content: "";
+  position: absolute;
+  right: 2%;
+  bottom: 1%;
+  width: 170px;
+  aspect-ratio: 421 / 447;
+  background: url("/designs/nuray/blue-gift.png") center / contain no-repeat;
+  transform: rotate(-8deg);
+}
+
+.app-design--nuray .intro-mini-scene > span {
+  display: none;
+}
+
+.app-design--nuray .flow-divider__wash {
+  background:
+    url("/designs/nuray/navy-string.png") center / min(520px, 82vw) auto no-repeat,
+    transparent;
+  opacity: 0.68;
+}
+
+.app-design--nuray .flow-divider__thread {
+  top: 45%;
+  background: linear-gradient(90deg, transparent, rgba(52, 61, 93, 0.28), transparent);
+}
+
+.app-design--nuray .flow-divider__petal {
+  width: 74px;
+  height: 58px;
+  border-radius: 0;
+  background: url("/designs/nuray/flying-birds.png") center / contain no-repeat;
+  opacity: 0.64;
+}
+
+.app-design--nuray .flow-divider__leaf {
+  width: 58px;
+  height: 58px;
+  border-radius: 0;
+  background: url("/designs/nuray/blue-sparkle.png") center / contain no-repeat;
+  opacity: 0.45;
+}
+
+.app-design--nuray .painted-flower {
+  border-radius: 0;
+  background: url("/designs/nuray/yellow-bouquet.png") center / contain no-repeat;
+  filter: none;
+}
+
+.app-design--nuray .painted-flower::after {
+  display: none;
+}
+
+.app-design--nuray .painted-leaf {
+  background: #607d66;
+}
+
+.app-design--nuray .motif--nuray-corner {
+  top: 1.2rem;
+  width: clamp(110px, 13vw, 190px);
+  opacity: 0.62;
+  animation: nurayFloat 7s ease-in-out infinite;
+}
+
+.app-design--nuray .motif--nuray-corner-left {
+  left: 1.4rem;
+}
+
+.app-design--nuray .motif--nuray-corner-right {
+  right: 1.4rem;
+  transform: scaleX(-1);
+  animation-delay: -2.2s;
+}
+
+.app-design--nuray .motif--nuray-string {
+  left: 50%;
+  top: 2.4rem;
+  width: min(540px, 52vw);
+  opacity: 0.5;
+  transform: translateX(-50%);
+}
+
+.app-design--nuray .motif--nuray-bells {
+  left: 50%;
+  top: 0.7rem;
+  width: clamp(86px, 10vw, 132px);
+  transform: translateX(-50%);
+  animation: nurayBellSwing 4.8s ease-in-out infinite;
+}
+
+.app-design--nuray .motif--nuray-birds {
+  width: clamp(82px, 13vw, 154px);
+  opacity: 0.44;
+  animation: nurayBirdGlide 8s ease-in-out infinite;
+}
+
+.app-design--nuray .motif--nuray-birds-left {
+  left: 5%;
+  top: 42%;
+}
+
+.app-design--nuray .motif--nuray-birds-right {
+  right: 7%;
+  top: 36%;
+  animation-delay: -3s;
+}
+
+.app-design--nuray .motif--nuray-bouquet {
+  bottom: -1.2rem;
+  width: clamp(132px, 18vw, 250px);
+  opacity: 0.72;
+  animation: nurayFloat 6.6s ease-in-out infinite;
+}
+
+.app-design--nuray .motif--nuray-bouquet-left {
+  left: 1.4rem;
+}
+
+.app-design--nuray .motif--nuray-bouquet-right {
+  right: 1.4rem;
+  animation-delay: -2s;
+}
+
+.app-design--nuray .motif--nuray-rings {
+  right: 12%;
+  bottom: 13%;
+  width: clamp(70px, 9vw, 130px);
+  opacity: 0.48;
+  transform: rotate(-11deg);
+  animation: nurayFloat 6.2s ease-in-out infinite;
+}
+
+@keyframes nurayFloat {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+
+  50% {
+    translate: 0 -10px;
+  }
+}
+
+@keyframes nurayBellSwing {
+  0%,
+  100% {
+    transform: translateX(-50%) rotate(-2deg);
+  }
+
+  50% {
+    transform: translateX(-50%) rotate(4deg);
+  }
+}
+
+@keyframes nurayBirdGlide {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+
+  50% {
+    translate: 18px -8px;
+  }
+}
+
+@keyframes nurayCoupleStep {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+
+  50% {
+    transform: translateX(-50%) translateY(-6px);
+  }
+}
+
+@keyframes nuraySparkle {
+  0%,
+  100% {
+    opacity: 0.34;
+    scale: 0.94;
+  }
+
+  50% {
+    opacity: 0.72;
+    scale: 1.04;
+  }
+}
+
 @media (max-width: 760px) {
   .design-motifs {
     opacity: 0.55;
@@ -570,5 +1219,46 @@
   .app-design--letterpress .motif--deckle-sheet,
   .app-design--garden .motif--olive-bough-two {
     display: none;
+  }
+
+  .app-design--nuray .hero {
+    min-height: 100svh;
+  }
+
+  .app-design--nuray .hero__copy {
+    clip-path: polygon(5% 0, 96% 2%, 100% 12%, 96% 92%, 84% 100%, 8% 98%, 0 84%, 2% 10%);
+  }
+
+  .app-design--nuray .hero__visual {
+    min-height: 620px;
+  }
+
+  .app-design--nuray .storybook-scene__card {
+    left: 11%;
+    top: 13%;
+    width: 78%;
+    min-height: 210px;
+  }
+
+  .app-design--nuray .storybook-scene::after {
+    width: 58%;
+  }
+
+  .app-design--nuray .motif--nuray-corner,
+  .app-design--nuray .motif--nuray-string,
+  .app-design--nuray .motif--nuray-rings {
+    display: none;
+  }
+
+  .app-design--nuray .motif--nuray-bouquet {
+    width: 128px;
+  }
+
+  .app-design--nuray .motif--nuray-birds-left {
+    left: -1rem;
+  }
+
+  .app-design--nuray .motif--nuray-birds-right {
+    right: -1rem;
   }
 }

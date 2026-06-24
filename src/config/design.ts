@@ -3,10 +3,11 @@ export const designVariants = {
   moonlit: "Gece fenerleri",
   tile: "Akdeniz çini",
   letterpress: "Letterpress davetiye",
-  garden: "Zeytin bahçesi"
+  garden: "Zeytin bahçesi",
+  nuray: "PowerPoint sahil davetiyesi"
 } as const;
 
 export type DesignVariant = keyof typeof designVariants;
 
 // Site tasarımını değiştirmek için sadece bu değeri değiştirin.
-export const activeDesign: DesignVariant = "garden  ";
+export const activeDesign: DesignVariant = "nuray";

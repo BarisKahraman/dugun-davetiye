@@ -62,6 +62,28 @@ export function DesignMotifs({ design }: DesignMotifsProps) {
           <span className="motif motif--stitch-path" />
         </>
       ) : null}
+
+      {design === "nuray" ? (
+        <>
+          <img
+            className="motif motif--nuray-corner motif--nuray-corner-left"
+            src="/designs/nuray/floral-arch-corner.png"
+            alt=""
+          />
+          <img
+            className="motif motif--nuray-corner motif--nuray-corner-right"
+            src="/designs/nuray/floral-arch-corner.png"
+            alt=""
+          />
+          <img className="motif motif--nuray-string" src="/designs/nuray/navy-string.png" alt="" />
+          <img className="motif motif--nuray-bells" src="/designs/nuray/blue-bells.png" alt="" />
+          <img className="motif motif--nuray-birds motif--nuray-birds-left" src="/designs/nuray/flying-birds.png" alt="" />
+          <img className="motif motif--nuray-birds motif--nuray-birds-right" src="/designs/nuray/flying-birds.png" alt="" />
+          <img className="motif motif--nuray-bouquet motif--nuray-bouquet-left" src="/designs/nuray/yellow-bouquet.png" alt="" />
+          <img className="motif motif--nuray-bouquet motif--nuray-bouquet-right" src="/designs/nuray/ribbon-bouquet.png" alt="" />
+          <img className="motif motif--nuray-rings" src="/designs/nuray/gold-rings.png" alt="" />
+        </>
+      ) : null}
     </div>
   );
 }
