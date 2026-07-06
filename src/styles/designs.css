@@ -1014,8 +1014,8 @@
 }
 
 .app-design--nuray .intro-mini-scene::before {
-  inset: auto 0 6%;
-  height: 62%;
+  inset: auto 2% 2%;
+  height: 84%;
   background: url("/designs/nuray/couple-dance.png") center bottom / contain no-repeat;
   opacity: 1;
 }
