@@ -164,12 +164,12 @@ export function RsvpSection({ config }: RsvpSectionProps) {
           </div>
 
           <div className="honeypot" aria-hidden="true">
-            <label htmlFor="company">Bu alanı boş bırakın</label>
+            <label htmlFor="wdng_hp">Bu alanı boş bırakın</label>
             <input
-              id="company"
-              name="company"
+              id="wdng_hp"
+              name="wdng_hp"
               tabIndex={-1}
-              autoComplete="off"
+              autoComplete="new-password"
               value={form.honey}
               onChange={(event) => update("honey", event.target.value)}
             />

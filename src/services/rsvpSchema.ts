@@ -51,17 +51,9 @@ export const rsvpSchema = z
     songTitle: optionalText(120),
     songArtist: optionalText(120),
     consent: z.boolean().optional().default(true),
-    honey: z.string().max(0).optional()
+    honey: z.string().optional()
   })
   .superRefine((value, ctx) => {
-    if (value.honey) {
-      ctx.addIssue({
-        code: z.ZodIssueCode.custom,
-        message: "Gönderim doğrulanamadı.",
-        path: ["honey"]
-      });
-    }
-
     if (value.attendance === "attending" && !value.guestCount) {
       ctx.addIssue({
         code: z.ZodIssueCode.custom,
