@@ -5,6 +5,7 @@ import type {
   RsvpResult,
   ScheduleItem
 } from "../types/wedding";
+import { googleSheetsAdapter } from "./googleSheetsAdapter";
 import { mockAdapter } from "./mockAdapter";
 import { productionAdapter } from "./productionAdapter";
 
@@ -22,10 +23,24 @@ export type WeddingDataAdapter = {
   approveGuestbook(id: string, approved: boolean, displayedName: string | undefined, token?: string): Promise<void>;
 };
 
-export function isProductionMode(): boolean {
-  return import.meta.env.VITE_DATA_MODE === "production";
+type DataMode = "mock" | "sheets" | "production";
+
+function getDataMode(): DataMode {
+  const mode = import.meta.env.VITE_DATA_MODE;
+  if (mode === "production") return "production";
+  if (mode === "sheets") return "sheets";
+  return "mock";
 }
 
-export const weddingDataAdapter: WeddingDataAdapter = isProductionMode()
-  ? productionAdapter
-  : mockAdapter;
+export function isProductionMode(): boolean {
+  const mode = getDataMode();
+  return mode === "production" || mode === "sheets";
+}
+
+const adapters: Record<DataMode, WeddingDataAdapter> = {
+  mock: mockAdapter,
+  sheets: googleSheetsAdapter,
+  production: productionAdapter
+};
+
+export const weddingDataAdapter: WeddingDataAdapter = adapters[getDataMode()];

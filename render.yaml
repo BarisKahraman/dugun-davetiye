@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: dugun-davetiye
+    runtime: static
+    buildCommand: npm ci && npm run build
+    staticPublishPath: ./dist
+    envVars:
+      - key: NODE_VERSION
+        value: "20"
+      - key: VITE_DATA_MODE
+        value: sheets
+      - key: VITE_SHEETS_WEBHOOK_URL
+        sync: false
+      - key: VITE_SITE_URL
+        sync: false
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
