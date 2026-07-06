@@ -73,6 +73,7 @@ export function RsvpSection({ config }: RsvpSectionProps) {
   const [successMessage, setSuccessMessage] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const startedRef = useRef(false);
+  const successRef = useRef<HTMLDivElement>(null);
   const mode = getWeddingMode(config.event);
 
   if (!config.rsvp.enabled || mode === "after") {
@@ -115,6 +116,7 @@ export function RsvpSection({ config }: RsvpSectionProps) {
       const result = await weddingDataAdapter.submitRsvp(parsed.data);
       await weddingDataAdapter.track("rsvpCompleted").catch(() => undefined);
       setSuccessMessage(result.message);
+      setTimeout(() => successRef.current?.scrollIntoView({ behavior: "smooth", block: "center" }), 50);
     } catch (error) {
       setSubmitError(error instanceof Error ? error.message : "Gönderim sırasında bir sorun oluştu.");
     } finally {
@@ -139,7 +141,7 @@ export function RsvpSection({ config }: RsvpSectionProps) {
           <p className="privacy-note">{config.copy.privacyNote}</p>
         </div>
         {successMessage ? (
-          <div className="rsvp-form success-panel" role="status">
+          <div ref={successRef} className="rsvp-form success-panel" role="status">
             <div className="rsvp-form__corner-florals" aria-hidden="true">
               <span className="painted-flower painted-flower--blue" />
               <span className="painted-flower painted-flower--rose" />
