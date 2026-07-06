@@ -3,28 +3,27 @@
 // Bu kodu Google Sheets'e bağlı Apps Script editörüne yapıştırın.
 // ============================================================
 //
-// NEDEN DOGET? Browser'dan fetch(no-cors) ile POST atıldığında Apps Script
-// bunu farklı bir domain'e 302 redirect eder. Bu sırada browser POST→GET'e
-// dönüştürür. Bu yüzden hem doGet hem doPost aynı handleRequest fonksiyonunu
-// çağırır; veri GET'te query param, POST'ta postData olarak gelir.
+// Neden GET? Browser fetch(no-cors) ile Apps Script'e POST atıldığında
+// 302 redirect sonrası browser body'yi düşürür, doPost çalışmaz.
+// GET + URL params güvenilir çalışır: doGet(e) → e.parameter ile okunur.
 // ============================================================
 
 var SHEET_NAME = "RSVPs";
 
 function doGet(e) {
-  // Hem "endpoint aktif mi?" kontrolü hem de form verisi (no-cors redirect sonrası)
+  // Veri içeren istek mi yoksa sadece "canlı mı?" kontrolü mü?
   if (e && e.parameter && e.parameter.fullName) {
     return handleRequest(e.parameter);
   }
   return jsonOut({ ok: true, status: "RSVP endpoint aktif" });
 }
 
+// doPost fallback — doğrudan çağrılırsa da çalışsın
 function doPost(e) {
   try {
     var data = JSON.parse(e.postData.contents);
     return handleRequest(data);
   } catch (err) {
-    Logger.log("doPost parse hatası: " + err.toString());
     return jsonOut({ ok: false, message: "Veri okunamadı." });
   }
 }
@@ -43,7 +42,7 @@ function handleRequest(data) {
       data.fullName        || "",
       data.phone           || "",
       data.attendance      || "",
-      data.guestCount != null ? data.guestCount : "",
+      data.guestCount != null && data.guestCount !== "" ? Number(data.guestCount) : "",
       data.accommodationNeed || "",
       data.message         || "",
       data.songTitle       || "",

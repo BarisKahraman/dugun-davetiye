@@ -17,16 +17,22 @@ function webhookUrl(): string {
 
 export const googleSheetsAdapter: WeddingDataAdapter = {
   async submitRsvp(input: RsvpFormInput): Promise<RsvpResult> {
-    // Apps Script Web App POST isteklerini farklı bir domain'e redirect eder.
-    // Bu redirect sırasında browser POST→GET'e dönüştürür; doPost hiç çağrılmaz.
-    // Çözüm: no-cors modu — tarayıcı isteği gönderir, Apps Script çalışır,
-    // ama response opaque döner (okunamaz). Bu yüzden optimistic success dönüyoruz.
-    await fetch(webhookUrl(), {
-      method: "POST",
-      mode: "no-cors",
-      headers: { "Content-Type": "text/plain;charset=utf-8" },
-      body: JSON.stringify(input)
-    });
+    // Apps Script POST redirect'te body'yi düşürür; doPost hiç çalışmaz.
+    // GET + URL params güvenilir çalışır: Apps Script doGet(e) → e.parameter ile okur.
+    const url = new URL(webhookUrl());
+    url.searchParams.set("fullName", input.fullName);
+    url.searchParams.set("phone", input.phone);
+    url.searchParams.set("attendance", input.attendance);
+    url.searchParams.set("guestCount", String(input.guestCount ?? ""));
+    url.searchParams.set("accommodationNeed", input.accommodationNeed ?? "");
+    url.searchParams.set("message", input.message ?? "");
+    url.searchParams.set("songTitle", input.songTitle ?? "");
+    url.searchParams.set("songArtist", input.songArtist ?? "");
+    url.searchParams.set("honey", input.honey ?? "");
+    // Cache'lenmemesi için timestamp
+    url.searchParams.set("_t", String(Date.now()));
+
+    await fetch(url.toString(), { method: "GET", mode: "no-cors" });
 
     return {
       ok: true,

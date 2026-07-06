@@ -138,23 +138,28 @@ export function RsvpSection({ config }: RsvpSectionProps) {
           </div>
           <p className="privacy-note">{config.copy.privacyNote}</p>
         </div>
+        {successMessage ? (
+          <div className="rsvp-form success-panel" role="status">
+            <div className="rsvp-form__corner-florals" aria-hidden="true">
+              <span className="painted-flower painted-flower--blue" />
+              <span className="painted-flower painted-flower--rose" />
+              <span className="painted-leaf" />
+            </div>
+            <CheckCircle2 aria-hidden="true" size={28} />
+            <h3>{successMessage}</h3>
+            <CalendarLinks config={config} compact />
+            <a className="button button--ghost" href={googleMapsUrl(config)} target="_blank" rel="noreferrer">
+              <MapPin aria-hidden="true" size={18} />
+              Haritaya Git
+            </a>
+          </div>
+        ) : (
         <form className="rsvp-form" onSubmit={handleSubmit} onFocusCapture={trackStarted} noValidate>
           <div className="rsvp-form__corner-florals" aria-hidden="true">
             <span className="painted-flower painted-flower--blue" />
             <span className="painted-flower painted-flower--rose" />
             <span className="painted-leaf" />
           </div>
-          {successMessage ? (
-            <div className="success-panel" role="status">
-              <CheckCircle2 aria-hidden="true" size={28} />
-              <h3>{successMessage}</h3>
-              <CalendarLinks config={config} compact />
-              <a className="button button--ghost" href={googleMapsUrl(config)} target="_blank" rel="noreferrer">
-                <MapPin aria-hidden="true" size={18} />
-                Haritaya Git
-              </a>
-            </div>
-          ) : null}
 
           <div className="honeypot" aria-hidden="true">
             <label htmlFor="company">Bu alanı boş bırakın</label>
@@ -295,6 +300,7 @@ export function RsvpSection({ config }: RsvpSectionProps) {
             {submitting ? "Gönderiliyor" : "Gönder"}
           </button>
         </form>
+        )}
       </div>
     </section>
   );
