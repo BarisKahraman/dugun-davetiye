@@ -1,52 +1,64 @@
 // ============================================================
 // Düğün Davetiye – Google Apps Script Web App
 // Bu kodu Google Sheets'e bağlı Apps Script editörüne yapıştırın.
-// Kurulum adımları için aşağıdaki README bölümüne bakın.
+// ============================================================
+//
+// NEDEN DOGET? Browser'dan fetch(no-cors) ile POST atıldığında Apps Script
+// bunu farklı bir domain'e 302 redirect eder. Bu sırada browser POST→GET'e
+// dönüştürür. Bu yüzden hem doGet hem doPost aynı handleRequest fonksiyonunu
+// çağırır; veri GET'te query param, POST'ta postData olarak gelir.
 // ============================================================
 
 var SHEET_NAME = "RSVPs";
-var ALLOWED_ORIGIN = "https://nuraybarisevleniyooooooor.com"; // kendi domain'inizle değiştirin
 
-// GET isteği — deploy edildiğini test etmek için tarayıcıdan açabilirsiniz
-function doGet() {
-  return ContentService
-    .createTextOutput(JSON.stringify({ ok: true, status: "RSVP endpoint aktif" }))
-    .setMimeType(ContentService.MimeType.JSON);
+function doGet(e) {
+  // Hem "endpoint aktif mi?" kontrolü hem de form verisi (no-cors redirect sonrası)
+  if (e && e.parameter && e.parameter.fullName) {
+    return handleRequest(e.parameter);
+  }
+  return jsonOut({ ok: true, status: "RSVP endpoint aktif" });
 }
 
 function doPost(e) {
   try {
     var data = JSON.parse(e.postData.contents);
+    return handleRequest(data);
+  } catch (err) {
+    Logger.log("doPost parse hatası: " + err.toString());
+    return jsonOut({ ok: false, message: "Veri okunamadı." });
+  }
+}
 
-    // Bot koruması: honeypot dolu ise reddet
+function handleRequest(data) {
+  try {
     if (data.honey) {
-      return jsonOk({ ok: false, message: "Gönderim doğrulanamadı." });
+      return jsonOut({ ok: false, message: "Gönderim doğrulanamadı." });
     }
 
     var sheet = getOrCreateSheet();
     var now = new Date().toISOString();
 
     sheet.appendRow([
-      now,                                       // A - Tarih
-      data.fullName   || "",                     // B - Ad soyad
-      data.phone      || "",                     // C - Telefon
-      data.attendance || "",                     // D - Katılım
-      data.guestCount != null ? data.guestCount : "", // E - Kişi sayısı
-      data.accommodationNeed || "",              // F - Konaklama
-      data.message    || "",                     // G - Mesaj
-      data.songTitle  || "",                     // H - Şarkı adı
-      data.songArtist || ""                      // I - Sanatçı
+      now,
+      data.fullName        || "",
+      data.phone           || "",
+      data.attendance      || "",
+      data.guestCount != null ? data.guestCount : "",
+      data.accommodationNeed || "",
+      data.message         || "",
+      data.songTitle       || "",
+      data.songArtist      || ""
     ]);
 
     var message = data.attendance === "attending"
       ? "Harika, notunuz bize ulaştı. 16 Ağustos'ta görüşmek üzere."
       : "Bize haber verdiğiniz için teşekkür ederiz. O gün sizi yanımızda hissedeceğiz.";
 
-    return jsonOk({ ok: true, id: Utilities.getUuid(), message: message });
+    return jsonOut({ ok: true, id: Utilities.getUuid(), message: message });
 
   } catch (err) {
     Logger.log("RSVP hatası: " + err.toString());
-    return jsonOk({ ok: false, message: "Bir hata oluştu, lütfen tekrar deneyin." });
+    return jsonOut({ ok: false, message: "Bir hata oluştu, lütfen tekrar deneyin." });
   }
 }
 
@@ -56,7 +68,6 @@ function getOrCreateSheet() {
 
   if (!sheet) {
     sheet = ss.insertSheet(SHEET_NAME);
-    // Başlık satırı
     sheet.appendRow([
       "Tarih", "Ad Soyad", "Telefon", "Katılım",
       "Kişi Sayısı", "Konaklama", "Mesaj", "Şarkı", "Sanatçı"
@@ -68,7 +79,7 @@ function getOrCreateSheet() {
   return sheet;
 }
 
-function jsonOk(data) {
+function jsonOut(data) {
   return ContentService
     .createTextOutput(JSON.stringify(data))
     .setMimeType(ContentService.MimeType.JSON);

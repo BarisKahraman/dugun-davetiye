@@ -17,32 +17,24 @@ function webhookUrl(): string {
 
 export const googleSheetsAdapter: WeddingDataAdapter = {
   async submitRsvp(input: RsvpFormInput): Promise<RsvpResult> {
-    // Apps Script Web App CORS quirk: text/plain header ile OPTIONS preflight atlanır,
-    // body içeriği yine JSON. Script tarafında e.postData.contents ile okunur.
-    const response = await fetch(webhookUrl(), {
+    // Apps Script Web App POST isteklerini farklı bir domain'e redirect eder.
+    // Bu redirect sırasında browser POST→GET'e dönüştürür; doPost hiç çağrılmaz.
+    // Çözüm: no-cors modu — tarayıcı isteği gönderir, Apps Script çalışır,
+    // ama response opaque döner (okunamaz). Bu yüzden optimistic success dönüyoruz.
+    await fetch(webhookUrl(), {
       method: "POST",
+      mode: "no-cors",
       headers: { "Content-Type": "text/plain;charset=utf-8" },
-      body: JSON.stringify(input),
-      redirect: "follow"
+      body: JSON.stringify(input)
     });
-
-    if (!response.ok) {
-      throw new Error("Gönderim sırasında bir sorun oluştu.");
-    }
-
-    const payload = (await response.json()) as { ok: boolean; id?: string; message?: string };
-    if (!payload.ok) {
-      throw new Error(payload.message ?? "Gönderim başarısız.");
-    }
 
     return {
       ok: true,
-      id: payload.id ?? crypto.randomUUID(),
+      id: crypto.randomUUID(),
       message:
-        payload.message ??
-        (input.attendance === "attending"
+        input.attendance === "attending"
           ? weddingConfig.copy.rsvpPositiveThanks
-          : weddingConfig.copy.rsvpNegativeThanks)
+          : weddingConfig.copy.rsvpNegativeThanks
     };
   },
 
