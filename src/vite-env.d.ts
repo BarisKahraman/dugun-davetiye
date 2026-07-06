@@ -1,7 +1,8 @@
 /// <reference types="vite/client" />
 
 interface ImportMetaEnv {
-  readonly VITE_DATA_MODE?: "mock" | "production";
+  readonly VITE_DATA_MODE?: "mock" | "sheets" | "production";
+  readonly VITE_SHEETS_WEBHOOK_URL?: string;
   readonly VITE_SITE_URL?: string;
   readonly VITE_FUNCTIONS_BASE_URL?: string;
   readonly VITE_FIREBASE_API_KEY?: string;
