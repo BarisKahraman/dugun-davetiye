@@ -9,17 +9,12 @@ import type {
 import type { AdminSettingUpdate, WeddingDataAdapter } from "./dataAdapter";
 import { mockAdapter } from "./mockAdapter";
 
-function webhookUrl(): string {
-  const url = import.meta.env.VITE_SHEETS_WEBHOOK_URL;
-  if (!url) throw new Error("VITE_SHEETS_WEBHOOK_URL tanımlanmamış. .env dosyasına ekleyin.");
-  return url;
-}
+const SHEETS_URL =
+  "https://script.google.com/macros/s/AKfycbx50BbI9R2kigiI1mHN002EhuXeUT7pKQY_Br2gM4Ovc4VqYtIG-l_zal4ksnmgC-Jp/exec";
 
 export const googleSheetsAdapter: WeddingDataAdapter = {
-  async submitRsvp(input: RsvpFormInput): Promise<RsvpResult> {
-    // Apps Script POST redirect'te body'yi düşürür; doPost hiç çalışmaz.
-    // GET + URL params güvenilir çalışır: Apps Script doGet(e) → e.parameter ile okur.
-    const url = new URL(webhookUrl());
+  submitRsvp(input: RsvpFormInput): Promise<RsvpResult> {
+    const url = new URL(SHEETS_URL);
     url.searchParams.set("fullName", input.fullName);
     url.searchParams.set("phone", input.phone);
     url.searchParams.set("attendance", input.attendance);
@@ -29,23 +24,20 @@ export const googleSheetsAdapter: WeddingDataAdapter = {
     url.searchParams.set("songTitle", input.songTitle ?? "");
     url.searchParams.set("songArtist", input.songArtist ?? "");
     url.searchParams.set("honey", input.honey ?? "");
-    // Cache'lenmemesi için timestamp
     url.searchParams.set("_t", String(Date.now()));
 
-    await fetch(url.toString(), { method: "GET", mode: "no-cors" });
+    // Fire-and-forget: arka planda yazar, kullanıcıyı bekletmez
+    fetch(url.toString(), { method: "GET", mode: "no-cors" }).catch(() => undefined);
 
-    return {
-      ok: true,
-      id: crypto.randomUUID(),
-      message:
-        input.attendance === "attending"
-          ? weddingConfig.copy.rsvpPositiveThanks
-          : weddingConfig.copy.rsvpNegativeThanks
-    };
+    const message =
+      input.attendance === "attending"
+        ? weddingConfig.copy.rsvpPositiveThanks
+        : weddingConfig.copy.rsvpNegativeThanks;
+
+    return Promise.resolve({ ok: true, id: crypto.randomUUID(), message });
   },
 
-  // Aşağıdakiler admin paneli için — Google Sheets yeterli olmadığından mock'a devreder.
-  async track(_metric: AnalyticsMetric): Promise<void> {
+  track(_metric: AnalyticsMetric): Promise<void> {
     return Promise.resolve();
   },
   getAdminDashboard(token?: string): Promise<AdminDashboard> {

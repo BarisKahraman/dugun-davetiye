@@ -23,24 +23,15 @@ export type WeddingDataAdapter = {
   approveGuestbook(id: string, approved: boolean, displayedName: string | undefined, token?: string): Promise<void>;
 };
 
-type DataMode = "mock" | "sheets" | "production";
-
-function getDataMode(): DataMode {
+function getAdapter(): WeddingDataAdapter {
   const mode = import.meta.env.VITE_DATA_MODE;
-  if (mode === "production") return "production";
-  if (mode === "sheets") return "sheets";
-  return "mock";
+  if (mode === "production") return productionAdapter;
+  if (mode === "mock") return mockAdapter;
+  return googleSheetsAdapter;
 }
 
 export function isProductionMode(): boolean {
-  const mode = getDataMode();
-  return mode === "production" || mode === "sheets";
+  return import.meta.env.VITE_DATA_MODE !== "mock";
 }
 
-const adapters: Record<DataMode, WeddingDataAdapter> = {
-  mock: mockAdapter,
-  sheets: googleSheetsAdapter,
-  production: productionAdapter
-};
-
-export const weddingDataAdapter: WeddingDataAdapter = adapters[getDataMode()];
+export const weddingDataAdapter: WeddingDataAdapter = getAdapter();
