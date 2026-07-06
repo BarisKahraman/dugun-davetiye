@@ -26,8 +26,14 @@ export const googleSheetsAdapter: WeddingDataAdapter = {
     url.searchParams.set("honey", input.honey ?? "");
     url.searchParams.set("_t", String(Date.now()));
 
-    // Fire-and-forget: arka planda yazar, kullanıcıyı bekletmez
-    fetch(url.toString(), { method: "GET", mode: "no-cors" }).catch(() => undefined);
+    // Fire-and-forget: arka planda yazar, kullanıcıyı bekletmez.
+    // try-catch: kurumsal proxy window.fetch'i senkron throw eden bir wrapper ile
+    // değiştirebilir; bu durumda .catch() yakalamaz, try-catch yakalar.
+    try {
+      fetch(url.toString(), { method: "GET", mode: "no-cors" }).catch(() => undefined);
+    } catch {
+      // network engeli — veri gitmeyebilir ama başarı paneli gösterilir
+    }
 
     const message =
       input.attendance === "attending"
