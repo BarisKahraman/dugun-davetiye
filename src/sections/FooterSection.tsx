@@ -1,4 +1,4 @@
-import { Gift, Printer } from "lucide-react";
+import { Download, Gift } from "lucide-react";
 import { useState } from "react";
 import { CopyButton } from "../components/CopyButton";
 import { Modal } from "../components/Modal";
@@ -25,10 +25,10 @@ export function FooterSection({ config }: FooterSectionProps) {
           <small>nuraybarisevleniyooooooor.com</small>
         </div>
         <div className="footer__actions">
-          <button className="button button--ghost" type="button" onClick={() => window.print()}>
-            <Printer aria-hidden="true" size={18} />
-            PDF Davetiyeyi Kaydet
-          </button>
+          <a className="button button--ghost" href="/davetiye.png" download="Nuray-Baris-Davetiye.png">
+            <Download aria-hidden="true" size={18} />
+            Davetiyeyi İndir
+          </a>
           {giftDetails ? (
             <button className="button button--ghost" type="button" onClick={() => setGiftOpen(true)}>
               <Gift aria-hidden="true" size={18} />

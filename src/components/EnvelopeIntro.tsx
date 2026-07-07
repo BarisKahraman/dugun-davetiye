@@ -43,10 +43,10 @@ export function EnvelopeIntro({ opened, bride, groom, onOpen }: EnvelopeIntroPro
         <p className="eyebrow">Dijital davetiye</p>
         <h2>Zarfı açın, akşam başlasın.</h2>
         <p>Ufak bir tık. Sonrası Elmalı’da bir yaz akşamı.</p>
-        <span className="button button--primary">
+        <button className="button button--primary" type="button" onClick={onOpen} disabled={opened}>
           <MailOpen aria-hidden="true" size={18} />
           Davetiyeyi Aç
-        </span>
+        </button>
       </div>
     </div>
   );
