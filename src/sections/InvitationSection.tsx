@@ -20,14 +20,14 @@ export function InvitationSection({ config }: InvitationSectionProps) {
             <span className="painted-leaf" />
             <span className="painted-leaf" />
           </div>
-          <h2 id="invitation-title">Aynı Akşamda Buluşalım</h2>
+          <h2 id="invitation-title">Düğünümüze Davet</h2>
           <p className="intro-text">{config.copy.invitation}</p>
           <div className="motion-ticker" aria-hidden="true">
-            <span>Sofra</span>
+            <span>Yemek</span>
             <span>Müzik</span>
-            <span>Kahkaha</span>
-            <span>Tatlı telaş</span>
-            <span>Elmalı akşamı</span>
+            <span>Dans</span>
+            <span>Nikâh</span>
+            <span>16 Ağustos</span>
           </div>
         </div>
         <div className="intro-mini-scene" aria-hidden="true">

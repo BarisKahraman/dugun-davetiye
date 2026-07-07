@@ -41,8 +41,8 @@ export function EnvelopeIntro({ opened, bride, groom, onOpen }: EnvelopeIntroPro
       </button>
       <div className="envelope-scene__copy">
         <p className="eyebrow">Dijital davetiye</p>
-        <h2>Zarfı açın, akşam başlasın.</h2>
-        <p>Ufak bir tık. Sonrası Elmalı’da bir yaz akşamı.</p>
+        <h2>Düğünümüze davetlisiniz.</h2>
+        <p>16 Ağustos 2026 · Değirmenci Düğün Salonu</p>
         <button className="button button--primary" type="button" onClick={onOpen} disabled={opened}>
           <MailOpen aria-hidden="true" size={18} />
           Davetiyeyi Aç

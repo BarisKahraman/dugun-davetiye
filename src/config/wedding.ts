@@ -22,50 +22,49 @@ export const weddingConfig: WeddingConfig = {
     venueName: "Değirmenci Düğün Salonu",
     address: "Gökpınar, 07700 Elmalı / Antalya",
     city: "Elmalı / Antalya",
-    dressCode: "Belirli bir kıyafet kodumuz yok. Kendinizi iyi hissettiğiniz hâlinizle gelin.",
-    childrenInvited: true
+    childrenInvited: false
   },
   schedule: [
     {
       id: "yemek",
       order: 1,
       title: "Yemek",
-      description: "Akşamı aynı sofradan, aynı neşeyle başlatıyoruz.",
+      description: "Düğün yemeğimizle güne başlıyoruz.",
       enabled: true
     },
     {
       id: "giris-dansi",
       order: 2,
       title: "Giriş dansı",
-      description: "Sahneye küçük bir telaş, büyük bir gülümsemeyle çıkıyoruz.",
+      description: "Çiftin ilk dansıyla törenimiz başlıyor.",
       enabled: true
     },
     {
       id: "nikah",
       order: 3,
       title: "Nikâh",
-      description: "Kısa, sade ve hafızası uzun bir evet.",
+      description: "Resmi nikâh töreni.",
       enabled: true
     },
     {
       id: "taki-toreni",
       order: 4,
       title: "Takı töreni",
-      description: "Sevdiklerimizle tek tek selamlaştığımız o kalabalık an.",
+      description: "Sevdiklerimizle tek tek selamlaşıyoruz.",
       enabled: true
     },
     {
       id: "pasta-kesimi",
       order: 5,
       title: "Pasta kesimi",
-      description: "Tatlı kısmı biraz alkışlı olacak.",
+      description: "Pasta kesimi ile geceyi taçlandırıyoruz.",
       enabled: true
     },
     {
       id: "fotograf",
       order: 6,
       title: "Fotoğraf",
-      description: "Geceden yanımıza kalacak kareler için kısa bir mola.",
+      description: "Anı fotoğrafları için kısa bir süre ayırıyoruz.",
       enabled: true
     }
   ],
@@ -90,16 +89,16 @@ export const weddingConfig: WeddingConfig = {
   gallery: {},
   copy: {
     heroEyebrow: "16 AĞUSTOS 2026 · ELMALI / ANTALYA",
-    manifesto: "Bir yaz akşamında, sevdiğimiz herkesle aynı cümlede buluşuyoruz.",
+    manifesto: "Hayatımızın en özel gününde sizi yanımızda görmek istiyoruz.",
     invitation:
-      "16 Ağustos’ta Elmalı’da, hayatımızın en güzel akşamlarından birini birlikte kuruyoruz. Müzik, yemek, kahkaha ve biraz da tatlı telaş var. Sizleri aramızda görmek istiyoruz.",
-    rsvpPositiveThanks: "Harika, notunuz bize ulaştı. 16 Ağustos’ta görüşmek üzere.",
-    rsvpNegativeThanks: "Bize haber verdiğiniz için teşekkür ederiz. O gün sizi yanımızda hissedeceğiz.",
+      "16 Ağustos’ta Değirmenci Düğün Salonu’nda gerçekleşecek düğün törenimize sizleri davet etmekten mutluluk duyuyoruz. Varlığınız bu günü daha anlamlı kılacak.",
+    rsvpPositiveThanks: "Katılımınız için teşekkür ederiz. 16 Ağustos’ta görüşmek üzere.",
+    rsvpNegativeThanks: "Bize haber verdiğiniz için teşekkür ederiz.",
     guestNotePrompt:
-      "Bize bir cümle, güzel bir anı ya da o gece mutlaka çalması gereken bir şarkı bırakın.",
+      "Bize bir mesaj ya da o gün mutlaka duyulmak istediğiniz bir şarkı bırakabilirsiniz.",
     privacyNote:
-      "Bu formda paylaştığınız bilgiler yalnızca düğün organizasyonu ve sizinle iletişim kurmak amacıyla kullanılacaktır.",
-    postWeddingThanks: "Bu akşamı bizimle aynı hatıraya dönüştürdüğünüz için teşekkür ederiz."
+      "Bu formda paylaştığınız bilgiler yalnızca düğün organizasyonu amacıyla kullanılacaktır.",
+    postWeddingThanks: "Bu özel günü bizimle paylaştığınız için teşekkür ederiz."
   }
 };
 

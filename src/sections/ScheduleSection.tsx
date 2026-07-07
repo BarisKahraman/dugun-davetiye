@@ -43,10 +43,7 @@ export function ScheduleSection({ config }: ScheduleSectionProps) {
             ))}
           </ol>
         </div>
-        <div className="notes-row">
-          {config.event.dressCode ? <p>{config.event.dressCode}</p> : null}
-          {config.event.childrenInvited ? <p>Çocuklar da davetli.</p> : null}
-        </div>
+        <div className="notes-row" />
       </div>
     </section>
   );
