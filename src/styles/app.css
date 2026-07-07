@@ -1354,6 +1354,7 @@ main > .section:nth-of-type(3n)::after {
   width: min(90px, 9vw);
   height: 130px;
   pointer-events: none;
+  z-index: -1;
 }
 
 .intro-watercolor-accent .painted-flower:nth-child(1) {
