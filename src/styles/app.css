@@ -67,7 +67,11 @@
 
 .envelope-scene {
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: auto;
+  height: 100svh;
   z-index: 12;
   display: grid;
   grid-template-columns: minmax(300px, 0.9fr) minmax(280px, 0.75fr);
