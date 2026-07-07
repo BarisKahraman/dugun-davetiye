@@ -8,6 +8,7 @@ type ZonedParts = {
   day: number;
   hour: number;
   minute: number;
+  second: number;
 };
 
 export type CountdownState = {
@@ -16,6 +17,7 @@ export type CountdownState = {
   days: number;
   hours?: number;
   minutes?: number;
+  seconds?: number;
   label: string;
 };
 
@@ -32,6 +34,7 @@ export function getZonedParts(date: Date, timeZone: string): ZonedParts {
     day: "2-digit",
     hour: "2-digit",
     minute: "2-digit",
+    second: "2-digit",
     hourCycle: "h23"
   });
   const parts = formatter.formatToParts(date);
@@ -41,7 +44,8 @@ export function getZonedParts(date: Date, timeZone: string): ZonedParts {
     month: numberPart(parts, "month"),
     day: numberPart(parts, "day"),
     hour: numberPart(parts, "hour"),
-    minute: numberPart(parts, "minute")
+    minute: numberPart(parts, "minute"),
+    second: numberPart(parts, "second")
   };
 }
 
@@ -53,16 +57,16 @@ function parseIsoDate(dateIso: string): Pick<ZonedParts, "year" | "month" | "day
   return { year, month, day };
 }
 
-function parseTime(time?: string): Pick<ZonedParts, "hour" | "minute"> {
+function parseTime(time?: string): Pick<ZonedParts, "hour" | "minute" | "second"> {
   if (!time) {
-    return { hour: 0, minute: 0 };
+    return { hour: 0, minute: 0, second: 0 };
   }
   const [hour, minute] = time.split(":").map(Number);
-  return { hour: hour ?? 0, minute: minute ?? 0 };
+  return { hour: hour ?? 0, minute: minute ?? 0, second: 0 };
 }
 
 function pseudoUtcMs(parts: ZonedParts): number {
-  return Date.UTC(parts.year, parts.month - 1, parts.day, parts.hour, parts.minute);
+  return Date.UTC(parts.year, parts.month - 1, parts.day, parts.hour, parts.minute, parts.second);
 }
 
 function compareDateOnly(a: Pick<ZonedParts, "year" | "month" | "day">, b: Pick<ZonedParts, "year" | "month" | "day">): number {
@@ -139,6 +143,7 @@ export function createCountdown(event: WeddingConfig["event"], now = new Date())
   const days = Math.floor(diff / dayMs);
   const hours = Math.floor((diff % dayMs) / (60 * 60 * 1000));
   const minutes = Math.floor((diff % (60 * 60 * 1000)) / (60 * 1000));
+  const seconds = Math.floor((diff % (60 * 1000)) / 1000);
 
   return {
     mode,
@@ -146,7 +151,8 @@ export function createCountdown(event: WeddingConfig["event"], now = new Date())
     days,
     hours,
     minutes,
-    label: `${days} gün ${hours} saat ${minutes} dakika`
+    seconds,
+    label: `${days} gün ${hours} saat ${minutes} dakika ${seconds} saniye`
   };
 }
 

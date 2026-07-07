@@ -1226,7 +1226,7 @@ main > .section:nth-of-type(3n)::after {
 
 .countdown {
   display: grid;
-  grid-template-columns: repeat(3, minmax(88px, 112px));
+  grid-template-columns: repeat(4, minmax(72px, 96px));
   gap: 0.7rem;
   margin: 1.5rem 0 0;
 }
@@ -3116,7 +3116,7 @@ main > .reveal:nth-of-type(4n) {
   }
 
   .countdown {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .intro-grid,

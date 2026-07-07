@@ -27,25 +27,23 @@ export function CountdownDisplay({ event }: CountdownDisplayProps) {
   }
 
   return (
-    <div className="countdown" aria-label="Düğüne kalan süre" aria-live="polite">
+    <div className="countdown" aria-label="Düğüne kalan süre" aria-live="off">
       <div>
         <strong>{countdown.days}</strong>
         <span>Gün</span>
       </div>
-      {countdown.hasStartTime ? (
-        <>
-          <div>
-            <strong>{countdown.hours}</strong>
-            <span>Saat</span>
-          </div>
-          <div>
-            <strong>{countdown.minutes}</strong>
-            <span>Dakika</span>
-          </div>
-        </>
-      ) : (
-        <p>Başlangıç saati yakında paylaşılacak.</p>
-      )}
+      <div>
+        <strong>{String(countdown.hours ?? 0).padStart(2, "0")}</strong>
+        <span>Saat</span>
+      </div>
+      <div>
+        <strong>{String(countdown.minutes ?? 0).padStart(2, "0")}</strong>
+        <span>Dakika</span>
+      </div>
+      <div>
+        <strong>{String(countdown.seconds ?? 0).padStart(2, "0")}</strong>
+        <span>Saniye</span>
+      </div>
     </div>
   );
 }

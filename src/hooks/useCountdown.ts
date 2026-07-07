@@ -8,7 +8,7 @@ export function useCountdown(event: WeddingConfig["event"]) {
   useEffect(() => {
     const interval = window.setInterval(() => {
       setNow(new Date());
-    }, 60_000);
+    }, 1_000);
 
     return () => window.clearInterval(interval);
   }, []);

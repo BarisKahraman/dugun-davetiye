@@ -17,6 +17,7 @@ export const weddingConfig: WeddingConfig = {
   },
   event: {
     date: "2026-08-16",
+    startTime: "12:00",
     timezone: "Europe/Istanbul",
     venueName: "Değirmenci Düğün Salonu",
     address: "Gökpınar, 07700 Elmalı / Antalya",
