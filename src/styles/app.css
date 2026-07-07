@@ -1351,27 +1351,27 @@ main > .section:nth-of-type(3n)::after {
   position: absolute;
   right: 0;
   top: -1.4rem;
-  width: min(220px, 32vw);
-  height: 150px;
+  width: min(90px, 9vw);
+  height: 130px;
   pointer-events: none;
 }
 
 .intro-watercolor-accent .painted-flower:nth-child(1) {
-  right: 44px;
-  top: 10px;
+  right: 10px;
+  top: -14px;
   scale: 0.84;
 }
 
 .intro-watercolor-accent .painted-flower:nth-child(2) {
-  right: 12px;
-  top: 46px;
+  right: 4px;
+  top: 44px;
   scale: 0.62;
   animation-delay: -1.6s;
 }
 
 .intro-watercolor-accent .painted-flower:nth-child(3) {
-  right: 72px;
-  top: 52px;
+  right: 28px;
+  top: 66px;
   scale: 0.58;
   animation-delay: -2.6s;
 }
@@ -1387,14 +1387,14 @@ main > .section:nth-of-type(3n)::after {
 }
 
 .intro-watercolor-accent .painted-leaf:nth-child(4) {
-  right: 16px;
-  top: 76px;
+  right: 8px;
+  top: 86px;
   transform: rotate(154deg);
 }
 
 .intro-watercolor-accent .painted-leaf:nth-child(5) {
-  right: 6px;
-  top: 6px;
+  right: 4px;
+  top: 4px;
   scale: 0.72;
   transform: rotate(-24deg);
   animation-delay: -2.1s;
