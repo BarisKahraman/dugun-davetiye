@@ -1009,6 +1009,7 @@
     url("/designs/nuray/cloud-bank.png") left 2rem bottom 38% / 42% auto no-repeat,
     url("/designs/nuray/cloud-bank.png") right 1rem bottom 38% / 40% auto no-repeat,
     url("/designs/nuray/beach-water-strip.png") bottom center / 112% auto repeat-x,
+    url("/designs/nuray/wedding-arch.png") center bottom / 88% auto no-repeat,
     linear-gradient(180deg, #dce7ed 0 50%, #abc9e6 50% 78%, #f2dfbc 78%);
   clip-path: polygon(5% 0, 95% 2%, 100% 14%, 97% 90%, 88% 100%, 10% 98%, 0 84%, 2% 10%);
 }
