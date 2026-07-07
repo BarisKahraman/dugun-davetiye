@@ -1,4 +1,4 @@
-import { CalendarDays, MapPin, Printer } from "lucide-react";
+import { CalendarDays, Download, MapPin } from "lucide-react";
 import { CalendarLinks } from "../components/CalendarLinks";
 import { SectionHeading } from "../components/SectionHeading";
 import { getFamilyLine } from "../config/wedding";
@@ -45,10 +45,10 @@ export function EventDetailsSection({ config }: EventDetailsSectionProps) {
             <span className="detail-card__stamp" aria-hidden="true">NB</span>
             <h3>Davetiye</h3>
             {familyLine ? <p>{familyLine}</p> : <p>Göncü ve Kahraman aileleri sizleri bekliyor.</p>}
-            <button className="button button--ghost" type="button" onClick={() => window.print()}>
-              <Printer aria-hidden="true" size={18} />
-              Yazdırılabilir Davetiye
-            </button>
+            <a className="button button--ghost" href="/davetiye.png" download="Nuray-Baris-Davetiye.png">
+              <Download aria-hidden="true" size={18} />
+              Davetiyeyi İndir
+            </a>
           </article>
         </div>
         <CalendarLinks config={config} />
