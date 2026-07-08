@@ -726,12 +726,7 @@
 
 .app-design--nuray .hero__visual::before,
 .app-design--nuray .hero__visual::after {
-  width: 178px;
-  height: 158px;
-  border: 0;
-  box-shadow: none;
-  background: url("/designs/nuray/floral-arch-corner.png") center / contain no-repeat;
-  opacity: 0.96;
+  display: none;
 }
 
 .app-design--nuray .hero__visual::before {

@@ -1,6 +1,5 @@
 import { CalendarDays, Download, MapPin } from "lucide-react";
 import { CalendarLinks } from "../components/CalendarLinks";
-import { SectionHeading } from "../components/SectionHeading";
 import { getFamilyLine } from "../config/wedding";
 import type { WeddingConfig } from "../types/wedding";
 import { formatTurkishDate } from "../utils/date";
@@ -16,7 +15,7 @@ export function EventDetailsSection({ config }: EventDetailsSectionProps) {
     <section className="section section--details reveal" id="details" aria-labelledby="details-title">
       <div className="page-shell details-board">
         <div className="details-board__heading">
-          <SectionHeading eyebrow="Düğün Bilgileri" title="Kısa ve Net" />
+          <p className="eyebrow">Düğün Bilgileri</p>
           <div className="details-board__paper-stack" aria-hidden="true">
             <span />
             <span />
