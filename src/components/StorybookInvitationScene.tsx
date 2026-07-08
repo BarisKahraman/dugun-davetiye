@@ -12,7 +12,6 @@ export function StorybookInvitationScene() {
         <span className="storybook-scene__tape storybook-scene__tape--top" />
         <span className="storybook-scene__tape storybook-scene__tape--side" />
         <Monogram compact />
-        <strong>N &amp; B</strong>
         <small>16 Ağustos 2026</small>
         <span className="storybook-scene__card-line" />
       </div>

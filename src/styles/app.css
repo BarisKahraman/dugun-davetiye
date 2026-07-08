@@ -49,6 +49,11 @@
     filter 720ms ease;
 }
 
+.hero--sealed {
+  height: 100svh;
+  overflow: hidden;
+}
+
 .hero--sealed .hero__stage {
   opacity: 0;
   visibility: hidden;
