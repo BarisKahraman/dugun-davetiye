@@ -744,7 +744,7 @@
 .app-design--nuray .storybook-scene::before {
   z-index: 0;
   background:
-    url("/designs/nuray/wedding-arch.png") center top / 90% auto no-repeat,
+    url("/designs/nuray/wedding-arch.png") center bottom / 88% auto no-repeat,
     url("/designs/nuray/cloud-bank.png") left 6% top 4% / 30% auto no-repeat,
     url("/designs/nuray/cloud-bank.png") right 6% top 8% / 28% auto no-repeat,
     url("/designs/nuray/coastline-hill.png") center bottom 21% / 124% auto no-repeat,
