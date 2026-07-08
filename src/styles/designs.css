@@ -608,9 +608,7 @@
   z-index: 0;
   width: auto;
   height: min(30svh, 290px);
-  background:
-    url("/designs/nuray/sand-water-strip.png") bottom center / 1180px auto repeat-x,
-    linear-gradient(180deg, rgba(171, 201, 230, 0), rgba(171, 201, 230, 0.92) 26%, #f2dfbc 72%);
+  background: linear-gradient(180deg, rgba(171, 201, 230, 0), rgba(171, 201, 230, 0.92) 26%, #f2dfbc 72%);
   transform: none;
 }
 
@@ -745,10 +743,7 @@
   z-index: 0;
   background:
     url("/designs/nuray/wedding-arch.png") center bottom / 88% auto no-repeat,
-    url("/designs/nuray/cloud-bank.png") left 6% top 4% / 30% auto no-repeat,
-    url("/designs/nuray/cloud-bank.png") right 6% top 8% / 28% auto no-repeat,
     url("/designs/nuray/coastline-hill.png") center bottom 21% / 124% auto no-repeat,
-    url("/designs/nuray/beach-water-strip.png") center bottom / 112% auto repeat-x,
     linear-gradient(180deg, #dce7ed 0 52%, #abc9e6 52% 78%, #f2dfbc 78%);
   opacity: 1;
 }
