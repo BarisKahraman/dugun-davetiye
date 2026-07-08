@@ -788,15 +788,14 @@
 }
 
 .app-design--nuray .storybook-scene__card {
-  left: 24%;
-  top: 36%;
-  width: 52%;
-  min-height: 150px;
+  left: 18%;
+  top: 12%;
+  width: 64%;
+  min-height: 235px;
   border: 0;
-  z-index: 4;
   background:
     url("/designs/nuray/leaf-flourish.png") center 62% / 68% auto no-repeat,
-    rgba(255, 254, 248, 0.92);
+    rgba(255, 254, 248, 0.68);
   clip-path: polygon(8% 0, 92% 2%, 100% 18%, 95% 88%, 82% 100%, 10% 96%, 0 78%, 4% 12%);
   box-shadow: 0 18px 44px rgba(52, 61, 93, 0.12);
   animation: invitationCardBreath 7.2s ease-in-out infinite;
@@ -894,11 +893,10 @@
 }
 
 .app-design--nuray .storybook-scene__line {
-  left: 18%;
-  right: 18%;
-  bottom: 30%;
-  z-index: 4;
-  color: rgba(52, 61, 93, 0.32);
+  left: 12%;
+  right: 12%;
+  bottom: 24%;
+  color: rgba(52, 61, 93, 0.48);
 }
 
 .app-design--nuray .hero__date-card {
@@ -1214,10 +1212,10 @@
   }
 
   .app-design--nuray .storybook-scene__card {
-    left: 18%;
-    top: 34%;
-    width: 64%;
-    min-height: 130px;
+    left: 11%;
+    top: 13%;
+    width: 78%;
+    min-height: 210px;
   }
 
   .app-design--nuray .storybook-scene::after {
