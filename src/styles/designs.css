@@ -593,10 +593,7 @@
   height: min(64svh, 660px);
   border: 0;
   border-radius: 0;
-  background:
-    url("/designs/nuray/blue-bells.png") top center / 156px auto no-repeat,
-    url("/designs/nuray/navy-string.png") top 2.2rem center / min(560px, 58vw) auto no-repeat,
-    linear-gradient(180deg, rgba(220, 231, 237, 0.96), rgba(220, 231, 237, 0.78));
+  background: linear-gradient(180deg, rgba(220, 231, 237, 0.96), rgba(220, 231, 237, 0.78));
   clip-path: polygon(4% 0, 96% 0, 100% 87%, 88% 96%, 50% 100%, 11% 96%, 0 88%);
   transform: none;
 }
@@ -608,9 +605,7 @@
   z-index: 0;
   width: auto;
   height: min(30svh, 290px);
-  background:
-    url("/designs/nuray/sand-water-strip.png") bottom center / 1180px auto repeat-x,
-    linear-gradient(180deg, rgba(171, 201, 230, 0), rgba(171, 201, 230, 0.92) 26%, #f2dfbc 72%);
+  background: linear-gradient(180deg, rgba(171, 201, 230, 0), rgba(171, 201, 230, 0.92) 26%, #f2dfbc 72%);
   transform: none;
 }
 
